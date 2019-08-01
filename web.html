@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+  <title>timesheet</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <header>
+
+    <div class="nav_head">
+      <span id="openbtn" class="ok2" onclick="openNav()">&#9776;</span>
+      <a id="closebtn" class="ok1" onclick="closeNav()">&#9776;</a>
+      <a href="#">
+        <i class="fa fa-cubes"></i>
+        Timesheet
+      </a>
+      <span id="hidden" onclick="hiddennav()">&#9776;</span>
+      <div class="nav_right">
+        <a class="js-search" data-close="true" href="#"><i class="material-icons">search</i></a>
+        <img src="./united-kingdom.png" alt="">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">English</a>
+        <a class="material-icons" href="#">more_vert</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="sidebar" id="sideNav">
+    <div class="user-info">
+      <div class="image">
+        <img src="user.png" />
+
+      </div>
+      <div class="info-container">
+        <div class="name">.\admin</div>
+        <div class="email">admin@aspnetboilerplate.com</div>
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </div>
+
+    </div>
+    <div class="menu">
+      <ul>
+        <li> <a onclick="open_nav(event, 'Homepage')" class="item"><i
+              class="material-icons ng-star-inserted">home</i><span>Home page</span></a></li>
+        <li><a onclick="open_nav(event, 'User')" class="item"><i
+              class="material-icons ng-star-inserted">people</i><span>User</span></a></li>
+        <li> <a onclick="open_nav(event, 'manageProject')" class="item"><i
+              class="material-icons ng-star-inserted">assessment</i><span> Manage Project</span></a></li>
+        <li> <a onclick="open_nav(event, 'Clients')" class="item"><i
+              class="material-icons ng-star-inserted">people_outline</i><span>Clients</span></a></li>
+        <li> <a onclick="open_nav(event, 'ManageTasks')" class="item"><i
+              class="material-icons ng-star-inserted">import_contacts</i><span>Manage Tasks</span></a>
+        </li>
+        <li> <a onclick="open_nav(event, 'timesheet')" class="item"><i
+              class="material-icons ng-star-inserted">date_range</i><span> Timesheet</span></a></li>
+        <li> <a onclick="open_nav(event, 'MyTimesheet')" class="item"><i
+              class="material-icons ng-star-inserted">alarm</i><span> MyTimesheet</span></a></li>
+      </ul>
+    </div>
+    <div class="sidebar-footer">
+      © 2019 Timesheet <br>Version 4.3.0.0 [20192407]
+    </div>
+  </div>
+
+
+  <div class="main">
+    <div class="content" id="Homepage">
+      1
+    </div>
+    <div class="content" id="User">
+      2
+    </div>
+
+    <div class="content" id="manageProject">
+      <div class="mainManageProject">
+        <div class="header_manage">
+          <i>Manage Projects</i>
+          <a class="material-icons" onclick=" refresh()">more_vert</a>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
+            <!-- Modal -->
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title" id="exampleModalLongTitle">Create Project</h1>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="tab-labels">
+                          <div class="general" >
+                            general
+                          </div>
+                          <div class="team">
+                            Team
+                          </div>
+                          <div class="task">
+                            Tasks
+                          </div>
+
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">+New
+              Project</button>
+          </div>
+
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
+            <select class="set_option">
+              <option>All Projects (10)</option>
+              <option>Deactive Projects (0)</option>
+              <option>Active Projects (8)</option>
+            </select>
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+            <div class="active-purple-4 mb-4">
+              <input id="searchbar" onkeyup="search()" class="form-control" type="text"
+                placeholder="Search by client or project name" aria-label="Search">
+            </div>
+          </div>
+          
+        </div>
+
+        <div id="mainTable">
+          <table class="table table-hover table-stripped ">
+            <thead>
+              <tr>
+                <th class="search_item">Fis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="search_item">learning Management System</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-hover table-stripped ">
+            <thead>
+              <tr>
+                <th class="search_item">UGC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="search_item">site trax</td>
+              </tr>
+              <tr>
+                <td class="search_item">vanduc</td>
+              </tr>
+              <tr>
+                <td class="search_item">test 1</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-hover table-stripped ">
+            <thead>
+              <tr>
+                <th class="search_item">demo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="search_item">demo1</td>
+
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-hover table-stripped ">
+            <thead>
+              <tr>
+                <th class="search_item">c</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="search_item">demo1</td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="content" id="Clients">
+      4
+    </div>
+    <div class="content" id="ManageTasks">
+      5
+    </div>
+    <div class="content" id="timesheet">
+      6
+    </div>
+    <div class="content" id="MyTimesheet">
+      7
+    </div>
+  </div>
+
+</body>
+</htm>

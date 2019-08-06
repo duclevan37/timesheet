@@ -11,25 +11,36 @@
   <title>timesheet</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
 </head>
 
 <body>
 
   <header>
-
+  
     <div class="nav_head">
       <span id="openbtn" class="ok2" onclick="openNav()">&#9776;</span>
-      <a id="closebtn" class="ok1" onclick="closeNav()">&#9776;</a>
+      <a id="closebtn" class="ok1" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
       <a href="#">
         <i class="fa fa-cubes"></i>
-        Timesheet
+        Timesheet 
+      
       </a>
-      <span id="hidden" onclick="hiddennav()">&#9776;</span>
       <div class="nav_right">
+          <a class="js-search" data-close="true" href="#"><i class="material-icons">search</i></a>
+          <img src="./united-kingdom.png" alt="">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">English</a>
+          <a class="material-icons" href="#">more_vert</a>
+        </div>
+  
+      <p>
+          <a class="hidden" data-toggle="collapse" href="#collapseExample"  aria-expanded="false" aria-controls="collapseExample">
+              <i class="fa fa-arrows-v" aria-hidden="true"></i>
+          </a>
+        </p>
+        <div class="collapse" id="collapseExample">
+         
+      <div id="nav_right">
         <a class="js-search" data-close="true" href="#"><i class="material-icons">search</i></a>
         <img src="./united-kingdom.png" alt="">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">English</a>
@@ -57,7 +68,7 @@
               class="material-icons ng-star-inserted">home</i><span>Home page</span></a></li>
         <li><a onclick="open_nav(event, 'User')" class="item"><i
               class="material-icons ng-star-inserted">people</i><span>User</span></a></li>
-        <li> <a onclick="open_nav(event, 'manageProject')" class="item"><i
+        <li> <a onclick="open_nav(event, 'manageProject')" class="item active"><i
               class="material-icons ng-star-inserted">assessment</i><span> Manage Project</span></a></li>
         <li> <a onclick="open_nav(event, 'Clients')" class="item"><i
               class="material-icons ng-star-inserted">people_outline</i><span>Clients</span></a></li>
@@ -78,23 +89,25 @@
 
   <div class="main">
     <div class="content" id="Homepage">
-      1
+      
     </div>
     <div class="content" id="User">
-      2
+      
     </div>
 
     <div class="content" id="manageProject">
-      <div class="mainManageProject">
+      <div class="mainManageProject" onclick="closeNav()">
         <div class="header_manage">
           <i>Manage Projects</i>
           <a class="material-icons" onclick=" refresh()">more_vert</a>
         </div>
         <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
+          <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 ">
             <!-- Modal -->
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-example-modal-lg">+New
+              Project </button>
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-              aria-hidden="true">
+              aria-hidden="true" style="z-index:1400;">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -104,18 +117,284 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                      <div class="tab-labels">
-                          <div class="general" >
-                            general
+                    <ul class="nav nav-pills" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" data-toggle="pill" href="#home">General</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#menu1">Team</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#menu2">Tasks</a>
+                      </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                      <div id="home" class="container tab-pane active"><br>
+                        <div class="row">
+                          <div class="col-md-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                            <b> client(*)</b>
                           </div>
-                          <div class="team">
-                            Team
-                          </div>
-                          <div class="task">
-                            Tasks
+                          <div class="col-md-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 form1">
+                            <select id="option">
+                              <option value=""> choose client...</option>
+                              <option value="ugc"> UGC</option>
+                              <option value="Lan Anh"> LAN ANh </option>
+                              <option value="c1"> C1 </option>
+                              <option value="c2"> C2 </option>
+                              <option> C3 </option>
+                            </select>
                           </div>
 
+                          <div class="col-md-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <button type="button" class="btn btn-danger" data-toggle="modal"
+                              data-target="#test2"  >
+                              +New Clients
+                            </button>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                            <b> Project Name (*)</b>
+                          </div>
+                          <div class="col-md-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 form1">
+                            <form>
+                              <input type="text" class="form-control" placeholder="project name">
+                            </form>
+
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                            <b>Project Code (*)</b>
+                          </div>
+                          <div class="col-md-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 form1">
+                            <form>
+                              <input type="text" class="form-control" placeholder="project Code">
+                            </form>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                            <b> Date (*)</b>
+                          </div>
+                          <div class="col-md-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 form1">
+
+                            <div class="form-group ">
+
+                              <input type="date" name="bday" max="3000-12-31" min="1000-01-01" class="form-control">
+                            </div>
+
+                          </div>
+                          to
+                          <div class="col-md-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 form1">
+
+                            <div class="form-group ">
+
+                              <input type="date" name="bday" max="3000-12-31" min="1000-01-01" class="form-control">
+                            </div>
+
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <label for="" class="col-md-2 col-sm-2 col-lg-2 col-xl-2">
+                            NOTE
+                          </label>
+                          <div class="col-md-10 col-sm-10 col-lg-10 col-xl-10 ">
+                            <textarea class="form-control">
+
+                              </textarea>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-2 col-sm-2 col-lg-2 col-xl-2">
+                            <b>Project Type (*)</b>
+                          </div>
+                          <div class=" col-md-10 col-sm-10 col-lg-10 col-xl-10">
+
+                            <nav class="nav nav-pills nav-fill">
+                              <a data-toggle="pill" class="nav-item nav-link active" href="#a1">Time & Materials</a>
+                              <a data-toggle="pill" class="nav-item nav-link" href="#a2">Fixed Fee</a>
+                              <a data-toggle="pill" class="nav-item nav-link" href="#a3">Non-Billable</a>
+                            </nav>
+                            <div class="tab-content">
+                              <div id="a1" class="tab-pane fade in active">
+                              </div>
+                              <div id="a2" class="tab-pane fade">
+                              </div>
+                              <div id="a3" class="tab-pane fade">
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
                       </div>
+                      <div id="menu1" class="container tab-pane fade"><br>
+                        <table class="table table-hover table-striped">
+                          <tbody>
+                            <tr>
+                              <th class="thead-light" style="text-align: center">Team</th>
+                              <th>Member Type
+                              </th>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="member" onclick="">
+                          Select team member
+                        </div>
+                        <div id="mainTable">
+                          <table class="table table-hover table-stripped ">
+                            <thead class="thead-light">
+                              <tr>
+                                <th class="icon2"><i class="material-icons"> add_circle_outline </i>admin</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="icon2"><i class="material-icons"> add_circle_outline </i>bu1</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table class="table table-hover table-stripped ">
+                            <thead class="thead-light">
+                              <tr>
+                                <th class="icon2"><i class="material-icons"> add_circle_outline </i>test1</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="icon2"><i class="material-icons"> add_circle_outline </i>site trax</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table class="table table-hover table-stripped ">
+                            <thead class="thead-light">
+                              <tr>
+                                <th class="icon2"><i class="material-icons"> add_circle_outline </i>demo</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="icon2"><i class="material-icons"> add_circle_outline </i>demo1</td>
+
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table class="table table-hover table-stripped ">
+                            <thead class="thead-light">
+                              <tr>
+                                <th class="icon2"><i class="material-icons"> add_circle_outline </i>test2</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="icon2"><i class="material-icons"> add_circle_outline </i>demo1</td>
+
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div id="menu2" class="container tab-pane fade"><br>
+                        <table class="table table-hover table-striped">
+                          <tbody>
+                            <tr>
+                              <th class="thead-light" style="text-align: left;">Tasks</th>
+                              <th  style="text-align: right;"> Billable
+                              </th>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div id="mainTable2">
+                          <table class="table table-hover table-stripped ">
+                            <thead class="thead-light">
+                              <tr>
+                                <th class="icon2">Coding 
+                                  <div class="form-check">
+                                      <input type="checkbox"></label>
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="icon2"> Testing
+                                  <div class="form-check">
+                                      <input type="checkbox"></label>
+                                  </div>
+                              </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table class="table table-hover table-stripped ">
+                            <thead class="thead-light">
+                              <tr>
+                                <th class="icon2">Designer
+                                  <div class="form-check">
+                                      <input type="checkbox"></label>
+                                  </div>
+                              </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="icon2">CommonTask1
+                                  <div class="form-check">
+                                      <input type="checkbox"></label>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table class="table table-hover table-stripped ">
+                            <thead class="thead-light">
+                              <tr>
+                                <th class="icon2">get timesheet
+                                  <div class="form-check">
+                                      <input type="checkbox"></label>
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="icon2">test
+                                  <div class="form-check">
+                                      <input type="checkbox"></label>
+                                  </div>
+                                </td>
+
+                              </tr>
+                            </tbody>
+                          </table>
+                          <table class="table table-hover table-stripped ">
+                            <thead class="thead-light">
+                              <tr>
+                                <th class="icon2">test1
+                                  <div class="form-check">
+                                      <input type="checkbox"></label>
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="icon2">test3
+                                  <div class="form-check">
+                                      <input type="checkbox"></label>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -123,81 +402,167 @@
                   </div>
                 </div>
               </div>
+              <div id="test2" class="modal fade" role="dialog" style="z-index:1600;">
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      
+                      <div class="modal-body">
+                        
+                        content
+                        
+                      </div>      
+                    </div>
+                  </div>
+                </div>
             </div>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">+New
-              Project</button>
+
           </div>
 
-          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
+          <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
             <select class="set_option">
               <option>All Projects (10)</option>
-              <option>Deactive Projects (0)</option>
+              <option>Deactive Projects (0)</option>  
               <option>Active Projects (8)</option>
             </select>
           </div>
 
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+          <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
             <div class="active-purple-4 mb-4">
               <input id="searchbar" onkeyup="search()" class="form-control" type="text"
                 placeholder="Search by client or project name" aria-label="Search">
             </div>
           </div>
-          
+
         </div>
 
-        <div id="mainTable">
+        <div id="mainTable3">
           <table class="table table-hover table-stripped ">
-            <thead>
+            <thead class="thead-light">
               <tr>
-                <th class="search_item">Fis</th>
+                <th class="search_item">Fis
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="search_item">learning Management System</td>
+                <td class="search_item">learning Management System    
+                    <div class="dropdown" >
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Action <b class="caret"></b>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">View</a>
+                            <a class="dropdown-item" href="#">Edit</a>
+                            <a class="dropdown-item" href="#">Deactive</a>
+                            <a class="dropdown-item" href="#" style="color: red ;">Delete</a>
+                        </div>
+                    </div>
+                  
+                </td>
+                
               </tr>
             </tbody>
           </table>
           <table class="table table-hover table-stripped ">
-            <thead>
+            <thead class="thead-light">
               <tr>
                 <th class="search_item">UGC</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="search_item">site trax</td>
+                <td class="search_item">site trax
+                    <div class="dropdown" >
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Action <b class="caret"></b>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">View</a>
+                            <a class="dropdown-item" href="#">Edit</a>
+                            <a class="dropdown-item" href="#">Deactive</a>
+                            <a class="dropdown-item" href="#" style="color: red ;">Delete</a>
+                        </div>
+                    </div>
+                </td>
               </tr>
               <tr>
-                <td class="search_item">vanduc</td>
+                <td class="search_item">vanduc
+                    <div class="dropdown" >
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Action <b class="caret"></b>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">View</a>
+                            <a class="dropdown-item" href="#">Edit</a>
+                            <a class="dropdown-item" href="#">Deactive</a>
+                            <a class="dropdown-item" href="#" style="color: red ;">Delete</a>
+                        </div>
+                    </div>
+                </td>
               </tr>
               <tr>
-                <td class="search_item">test 1</td>
+                <td class="search_item">test 1
+                    <div class="dropdown" >
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Action <b class="caret"></b>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">View</a>
+                            <a class="dropdown-item" href="#">Edit</a>
+                            <a class="dropdown-item" href="#">Deactive</a>
+                            <a class="dropdown-item" href="#" style="color: red ;">Delete</a>
+                        </div>
+                    </div>
+                </td>
               </tr>
             </tbody>
           </table>
           <table class="table table-hover table-stripped ">
-            <thead>
+            <thead class="thead-light">
               <tr>
                 <th class="search_item">demo</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="search_item">demo1</td>
+                <td class="search_item">demo1 <div class="dropdown" >
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Action <b class="caret"></b>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">View</a>
+                        <a class="dropdown-item" href="#">Edit</a>
+                        <a class="dropdown-item" href="#">Deactive</a>
+                        <a class="dropdown-item" href="#" style="color: red ;">Delete</a>
+                    </div>
+                </div>
+              </td>
 
               </tr>
             </tbody>
           </table>
           <table class="table table-hover table-stripped ">
-            <thead>
+            <thead class="thead-light">
               <tr>
                 <th class="search_item">c</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="search_item">demo1</td>
+                <td class="search_item">demo1
+                    <div class="dropdown" >
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Action <b class="caret"></b>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">View</a>
+                            <a class="dropdown-item" href="#">Edit</a>
+                            <a class="dropdown-item" href="#">Deactive</a>
+                            <a class="dropdown-item" href="#" style="color: red ;">Delete</a>
+                        </div>
+                    </div>
+                </td>
 
               </tr>
             </tbody>
@@ -208,18 +573,22 @@
     </div>
 
     <div class="content" id="Clients">
-      4
+
     </div>
     <div class="content" id="ManageTasks">
-      5
+      
     </div>
     <div class="content" id="timesheet">
-      6
+      
     </div>
     <div class="content" id="MyTimesheet">
-      7
+      
     </div>
+   
   </div>
-
+  <script src="script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </htm>

@@ -1,25 +1,29 @@
 body {
   box-sizing: border-box;
-  background-color: #f1f1f1;
+  background-color: #757070;
 }
 
 header {
+  z-index: 100;
   position: fixed;
   top: 0;
   width: 100%;
   background-color: crimson;
+  user-select: none;
 }
 header .nav_head {
   padding-left: 10px;
   font-size: 20px;
 }
 header .nav_head #openbtn {
+  cursor: pointer;
   display: none;
   position: relative;
   margin: 0;
   padding: 0;
 }
 header .nav_head #closebtn {
+  cursor: pointer;
   display: none;
   position: relative;
   left: 0px;
@@ -45,6 +49,7 @@ header .nav_head #hiddenClick {
   display: none;
 }
 header .nav_head .nav_right {
+  display: inline-block;
   float: right;
   align-items: baseline;
   height: 70px;
@@ -66,6 +71,28 @@ header .nav_head .nav_right .dropdown-toggle .famfamfam-flags.gb {
   width: 16px;
   height: 11px;
 }
+header .nav_head #nav_right {
+  float: right;
+  align-items: baseline;
+  height: 70px;
+  width: 300px;
+}
+header .nav_head #nav_right img {
+  position: relative;
+  bottom: 8px;
+  width: 20px;
+  height: 20px;
+}
+header .nav_head #nav_right .dropdown-toggle {
+  position: relative;
+  bottom: 6px;
+  font-size: 15px;
+}
+header .nav_head #nav_right .dropdown-toggle .famfamfam-flags.gb {
+  display: inline-block;
+  width: 16px;
+  height: 11px;
+}
 
 .sidebar {
   z-index: 10;
@@ -75,7 +102,7 @@ header .nav_head .nav_right .dropdown-toggle .famfamfam-flags.gb {
   top: 70px;
   background-color: white;
   height: calc(100vh - 70px);
-  transition: 1s;
+  transition: 0.5s;
 }
 .sidebar .user-info {
   padding: 10px;
@@ -102,7 +129,7 @@ header .nav_head .nav_right .dropdown-toggle .famfamfam-flags.gb {
 .sidebar .menu {
   overflow-y: auto;
   width: 300px;
-  height: calc(100% - 300px);
+  height: calc(100% - 245px);
 }
 .sidebar .menu .sidebar-footer {
   display: none;
@@ -148,7 +175,6 @@ header .nav_head .nav_right .dropdown-toggle .famfamfam-flags.gb {
 }
 .main .content .mainManageProject {
   background-color: white;
-  height: calc(100vh - 70px);
 }
 .main .content .mainManageProject .header_manage {
   padding: 15px;
@@ -161,38 +187,56 @@ header .nav_head .nav_right .dropdown-toggle .famfamfam-flags.gb {
   cursor: pointer;
   float: right;
 }
-.main .content .mainManageProject .row .btn-primary {
+.main .content .mainManageProject .row .btn-danger {
   margin: 10px 0px 0px 20px;
-  background-color: red;
 }
-.main .content .mainManageProject .row .modal-body .tab-labels {
-  display: flex;
+.main .content .mainManageProject .row .modal-body .nav {
+  border-bottom: #f1f1f1 solid 1px;
 }
-.main .content .mainManageProject .row .modal-body .tab-labels .general {
-  padding: 10px;
-  cursor: pointer;
+.main .content .mainManageProject .row .modal-body .nav .nav-item {
   width: 30%;
   text-align: center;
 }
-.main .content .mainManageProject .row .modal-body .tab-labels .general:hover {
-  background-color: #555555;
-  opacity: 0.6;
-}
-.main .content .mainManageProject .row .modal-body .tab-labels .team {
-  cursor: pointer;
+.main .content .mainManageProject .row .modal-body .tab-content .container .row #option {
   padding: 10px;
-  width: 30%;
-  text-align: center;
+  width: 80%;
+  border: orangered solid 1px;
+  border-radius: 5px;
+  outline: none;
 }
-.main .content .mainManageProject .row .modal-body .tab-labels .task {
-  padding: 10px;
-  cursor: pointer;
-  width: 30%;
-  text-align: center;
+.main .content .mainManageProject .row .modal-body .tab-content .container .row .form1 {
+  padding-bottom: 20px;
+}
+.main .content .mainManageProject .row .modal-body .tab-content .container .row .nav-pills .nav-link.active, .main .content .mainManageProject .row .modal-body .tab-content .container .row .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #f36c00;
+  border: #f36c00;
+}
+.main .content .mainManageProject .row .modal-body .tab-content .container .row a {
+  border: #f1f1f1 solid 1px;
+  margin-right: 5px;
+  background-color: #f1f1f1;
+}
+.main .content .mainManageProject .row .modal-body .tab-content .container .btn-danger {
+  padding: 5px;
+  margin: 0px 0px 10px 0px;
+}
+.main .content .mainManageProject .row .modal-body .tab-content .member {
+  padding: 20px;
+}
+.main .content .mainManageProject .row .modal-body .tab-content .member:hover {
+  background-color: #f1f1f1;
+}
+.main .content .mainManageProject .row .modal-body .tab-content i {
+  position: relative;
+  top: 8px;
 }
 .main .content .mainManageProject .row .set_option {
   padding: 10px 20px 10px 20px;
   margin-top: 10px;
+  border-radius: 5px;
+  width: 80%;
+  outline: none;
 }
 .main .content .mainManageProject .row .set_option input {
   padding: 30px;
@@ -200,8 +244,8 @@ header .nav_head .nav_right .dropdown-toggle .famfamfam-flags.gb {
 .main .content .mainManageProject .row .active-purple-4 {
   position: relative;
   top: 0px;
-  padding: 10px;
-  width: 300px;
+  padding: 10px 0px 10px 10px;
+  width: 80%;
 }
 .main .content .mainManageProject .row .active-purple-4 input {
   padding: 10px;
@@ -209,8 +253,6 @@ header .nav_head .nav_right .dropdown-toggle .famfamfam-flags.gb {
 .main .content .mainManageProject .row .active-purple-4 input[type=text]:focus:not([readonly]) {
   border: 1px solid #4dd0e1;
   box-shadow: 0 0 0 1px #4dd0e1;
-  transition: 2s;
-  width: 400px;
 }
 .main #manageProject {
   display: block;
@@ -220,24 +262,64 @@ header .nav_head .nav_right .dropdown-toggle .famfamfam-flags.gb {
   background-color: #f1f1f1;
 }
 
-th {
-  background-color: #555555;
-  opacity: 0.8;
+.table {
+  margin: 0px;
 }
 
-@media screen and (max-width: 900px) {
-  header .nav_head #openbtn {
-    display: inline;
-  }
-  header .nav_head #closebtn {
-    display: none;
-  }
+.form-check {
+  display: inline-block;
+  float: right;
+  font-size: 30px;
+}
+.form-check .checkbox {
+  font-size: 20px;
+}
+
+.dropdown {
+  float: right;
+  margin-right: 100px;
+}
+
+#dropdownMenuButton {
+  background-color: #fff;
+  color: black;
+}
+
+#mainTable {
+  margin: 0px 20px 0px 20px;
+}
+
+.acc {
+  display: none;
+  float: right;
+}
+
+p {
+  display: none;
+  float: right;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 1180px) {
   header .nav_head .nav_right {
     display: none;
   }
-  .sidebar {
-    width: 0;
+  header .nav_head p {
+    display: inline;
   }
+  header .nav_head .hidden {
+    display: inline;
+  }
+  header .nav_head .last {
+    display: none;
+  }
+  header .acc {
+    display: inline-block;
+  }
+
   .sidebar .menu .sidebar-footer {
     width: 0;
   }
@@ -255,6 +337,9 @@ th {
     width: 100%;
     left: 20px;
   }
+}
+p {
+  display: inline-block;
 }
 
 /*# sourceMappingURL=style.css.map */

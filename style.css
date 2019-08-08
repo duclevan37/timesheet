@@ -1,6 +1,7 @@
 body {
   box-sizing: border-box;
-  background-color: #757070;
+  background-color: #f1f1f1;
+  user-select: none;
 }
 
 header {
@@ -9,7 +10,6 @@ header {
   top: 0;
   width: 100%;
   background-color: crimson;
-  user-select: none;
 }
 header .nav_head {
   padding-left: 10px;
@@ -127,34 +127,47 @@ header .nav_head #nav_right .dropdown-toggle .famfamfam-flags.gb {
   float: right;
 }
 .sidebar .menu {
-  overflow-y: auto;
-  width: 300px;
-  height: calc(100% - 245px);
-}
-.sidebar .menu .sidebar-footer {
-  display: none;
+  position: relative;
+  outline: none;
+  height: 100%;
 }
 .sidebar .menu ul {
-  padding-left: 15px;
-  display: block;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: calc(100% - 245px);
+  list-style-type: none;
   margin: 0;
-}
-.sidebar .menu ul .material-icons {
-  position: relative;
-  bottom: -4px;
+  padding: 0;
 }
 .sidebar .menu ul li {
   cursor: pointer;
-  list-style: none;
-  padding: 10px;
-  bottom: 0px;
+  padding: 10px 13px;
 }
-.sidebar .menu ul li .active {
+.sidebar .menu ul li:hover a {
+  color: red;
+}
+.sidebar .menu ul li:hover a i {
   color: red;
 }
 .sidebar .menu ul li a {
-  color: black;
   text-decoration: none;
+  color: #747474;
+  align-items: baseline;
+  position: relative;
+}
+.sidebar .menu ul li a i {
+  margin-right: 10px;
+  position: relative;
+  top: 4px;
+  color: #747474;
+}
+.sidebar .menu ul::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 3px;
+}
+.sidebar .menu ul::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
 }
 .sidebar .sidebar-footer {
   position: absolute;
@@ -174,6 +187,7 @@ header .nav_head #nav_right .dropdown-toggle .famfamfam-flags.gb {
   margin: 20px 15px 0 315px;
 }
 .main .content .mainManageProject {
+  margin-left: 20px;
   background-color: white;
 }
 .main .content .mainManageProject .header_manage {
@@ -200,7 +214,6 @@ header .nav_head #nav_right .dropdown-toggle .famfamfam-flags.gb {
 .main .content .mainManageProject .row .modal-body .tab-content .container .row #option {
   padding: 10px;
   width: 80%;
-  border: orangered solid 1px;
   border-radius: 5px;
   outline: none;
 }
@@ -234,12 +247,13 @@ header .nav_head #nav_right .dropdown-toggle .famfamfam-flags.gb {
 .main .content .mainManageProject .row .set_option {
   padding: 10px 20px 10px 20px;
   margin-top: 10px;
+  margin-left: 10px;
   border-radius: 5px;
   width: 80%;
   outline: none;
 }
-.main .content .mainManageProject .row .set_option input {
-  padding: 30px;
+.main .content .mainManageProject .row .set_option option {
+  width: 90%;
 }
 .main .content .mainManageProject .row .active-purple-4 {
   position: relative;
@@ -277,7 +291,8 @@ header .nav_head #nav_right .dropdown-toggle .famfamfam-flags.gb {
 
 .dropdown {
   float: right;
-  margin-right: 100px;
+  margin-right: 15px;
+  box-shadow: 5px 5px;
 }
 
 #dropdownMenuButton {
@@ -301,6 +316,10 @@ p {
 
 .hidden {
   display: none;
+}
+
+input[type=checkbox] {
+  transform: scale(2);
 }
 
 @media screen and (max-width: 1180px) {
